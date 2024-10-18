@@ -1,0 +1,73 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const taskInput = document.getElementById('taskInput');
+    const addTaskButton = document.getElementById('addTaskButton');
+    const taskList = document.getElementById('taskList');
+    const filterAll = document.getElementById('filterAll');
+    const filterCompleted = document.getElementById('filterCompleted');
+    const filterPending = document.getElementById('filterPending');
+
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    function renderTasks(filter = 'all') {
+        taskList.innerHTML = '';
+        const filteredTasks = tasks.filter(task => {
+            if (filter === 'completed') return task.completed;
+            if (filter === 'pending') return !task.completed;
+            return true;
+        });
+
+        filteredTasks.forEach((task, index) => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <span class="${task.completed ? 'completed' : ''}">${task.text}</span>
+                <div>
+                    <button onclick="toggleComplete(${index})">${task.completed ? 'Desmarcar' : 'Concluir'}</button>
+                    <button onclick="editTask(${index})">Editar</button>
+                    <button onclick="removeTask(${index})">Remover</button>
+                </div>
+            `;
+            taskList.appendChild(li);
+        });
+    }
+
+    window.toggleComplete = (index) => {
+        tasks[index].completed = !tasks[index].completed;
+        saveTasks();
+        renderTasks();
+    };
+
+    window.editTask = (index) => {
+        const newText = prompt('Editar tarefa:', tasks[index].text);
+        if (newText) {
+            tasks[index].text = newText;
+            saveTasks();
+            renderTasks();
+        }
+    };
+
+    window.removeTask = (index) => {
+        tasks.splice(index, 1);
+        saveTasks();
+        renderTasks();
+    };
+
+    function saveTasks() {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    addTaskButton.addEventListener('click', () => {
+        const taskText = taskInput.value.trim();
+        if (taskText) {
+            tasks.push({ text: taskText, completed: false });
+            taskInput.value = '';
+            saveTasks();
+            renderTasks();
+        }
+    });
+
+    filterAll.addEventListener('click', () => renderTasks('all'));
+    filterCompleted.addEventListener('click', () => renderTasks('completed'));
+    filterPending.addEventListener('click', () => renderTasks('pending'));
+
+    renderTasks();
+});
