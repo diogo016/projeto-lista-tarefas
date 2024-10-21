@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    background: linear-gradient(-45deg, #ffd943, #d7cc8d, #208cff, #6fafd3);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    margin: 40px auto;
+    align-items: center;
+  }
+
+h1 {
+    text-align: center;
+}
+
+input[type="text"] {
+    width: calc(100% - 130px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    color: rgb(255, 255, 254);
+    
+}
+
+button {
+    padding: 10px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0057b3;
+}
+
+.filters {
+    margin: 20px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    
+}
+
+li {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    border-radius:10px ;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+#filterAll,  #filterCompleted, #filterPending {
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.605);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.291); 
+}
+#addTaskButton {
+    cursor: pointer;
+    margin-left: 5px;
+    transition: transform 0.1s ease;
+}
+
+#addTaskButton:active {
+    transform: scale(0.9);
+}
+
+
+#filterAll:hover {
+    background-color: #fdd05eb6;
+    font-family: "Montserrat", sans-serif;
+}
+
+#filterCompleted:hover {
+    background-color: #fdd05eb6;
+    font-family: "Montserrat", sans-serif;
+}
+
+#filterPending:hover {
+    background-color: #fdd05eb6;
+    font-family: "Montserrat", sans-serif;
+}
+
+#taskInput {
+    background-color: rgb(195, 208, 216);
+    border-color: rgb(195, 208, 216);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.291);
+}
+
+#taskInput:focus {
+    border: 2px solid rgb(195, 208, 216);
+    outline: none;
+}
+
+
+
+.completed{
+    color: rgb(94, 94, 94);
+    font-family: "Montserrat", sans-serif;
+}
+
+.botao-editar, .botao-concluir, .botao-remover {
+    border-radius: 10px;
+    background-color: #1672db00;
+    color: black;
+}
+
+.botao-editar:hover {
+    background-color: #fdd05eb6;
+}
+
+.botao-concluir:hover {
+    background-color: #fdd05eb6;
+}
+.botao-remover:hover {
+    background-color: #fdd05eb6;
+    color: rgb(31, 31, 31);
+}
+
+.cabecalho-titulo {
+    background: linear-gradient(-45deg, #ffd943, #d7cc8d, #5ca6f4, #6fafd3);
+    padding: 2px;
+    border-radius: 30px;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.291);
+}
+
+
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.8s ease, box-shadow 0.3s ease;
+    transform: scale(1); 
+}
+
+
+.container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+
+
+.botao {
+    
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botao:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+.input-container {
+    display: flex;
+    align-items: center; 
+    font-family: "Montserrat", sans-serif;
+}
+
+.input-container input {
+    flex: 1;
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 50px; 
+    margin-right: 10px;
+    font-family: "Montserrat", sans-serif;
+    
+}
+
+.input-container {
+    position: relative;
+  }
+  
+  #taskInput {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+  }
+  
+  .efeito-bolha {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background-color: #007bff;
+    border-radius: 50%;
+    animation: bolha-efeito 1.5s ease;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  @keyframes bolha-efeito {
+    0% {
+      width: 0;
+      height: 0;
+    }
+    100% {
+      width: 200px;
+      height: 200px;
+      opacity: 0;
+    }
+  }
+  
